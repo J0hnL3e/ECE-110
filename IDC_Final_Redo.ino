@@ -310,6 +310,7 @@ void setup() {
 char nation;  // main (first) char
 char comms; // char for comms task
 char re; // char for redo 
+int tempV; // temp int 
 
 void loop(){
   // Prompt for which element test
@@ -328,21 +329,25 @@ void loop(){
   // if statement for each nation
   // each element task is a separate function that returns int 
   // int returned is added to total that will be outputted as final output
-  
+  tempV = 0;
   if (nation == 'e'){
-    total += earth(comms);
+    tempV = earth(comms);
+    total += tempV;
   }
 
   else if (nation == 'f'){
-    total += fire(comms);
+    tempV = fire(comms); 
+    total += tempV;
   }
 
   else if (nation == 'w'){
-    total += water(comms);
+    tempV = water(comms);
+    total += tempV;
   }
 
   else if (nation == 'a'){
-    total += air(comms);
+    tempV = air(comms);
+    total += tempV;
   }  
   state++;
 
@@ -355,6 +360,7 @@ void loop(){
 
   if (re == 'r'){
     state--; 
+    total = total - tempV;
   }
   
   // once state reaches 4 (4 element tasks done)
